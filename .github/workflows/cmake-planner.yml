@@ -57,9 +57,9 @@ jobs:
                echo "substrate_registry=$substrate_registry" >> $GITHUB_OUTPUT
                echo "substrate_auth=$substrate_auth" >> $GITHUB_OUTPUT
                echo "source_kind=$source_kind" >> $GITHUB_OUTPUT
-               echo "source_name=$substrate_name" >> $GITHUB_OUTPUT
-               echo "source_registry=$substrate_registry" >> $GITHUB_OUTPUT
-               echo "source_version=$substrate_version" >> $GITHUB_OUTPUT
+               echo "source_name=$source_name" >> $GITHUB_OUTPUT
+               echo "source_registry=$source_registry" >> $GITHUB_OUTPUT
+               echo "source_version=$source_version" >> $GITHUB_OUTPUT
                
                
       - name: Test Inputs
