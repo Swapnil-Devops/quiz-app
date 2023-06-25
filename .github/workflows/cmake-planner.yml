@@ -37,13 +37,14 @@ jobs:
           json-file: ./recipe/cmake/recipe.json
           schema-file: ./.schema/recipe.json
         
-#       - name: Capture JSON Output
-#         run: echo "${{ steps.custom_json_validation.outputs.json }}" 
+      - name: Capture JSON Output
+        id: set_output
+        run: echo "json_content=${{ steps.custom_json_validation.outputs.json }}"  >> $GITHUB_OUTPUT
 
       - name: Get Inputs
         id:   inputs
         run: |
-               json_content=echo "${{ steps.custom_json_validation.outputs.json }}"
+               json_content=${{ steps.set_output.outputs.json_content }}
                package_kind=$(echo "$json_content" | jq .package.kind)
                package_name=$(echo "$json_content" | jq .package.name)
                package_registry=$(echo "$json_content" | jq .package.registry)
