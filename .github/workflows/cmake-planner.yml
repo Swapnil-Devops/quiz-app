@@ -29,51 +29,59 @@ jobs:
     steps:
       - name: Checkout Codebase
         uses: actions/checkout@v3
+        
+      - name: Run Custom JSON Validation Action
+        id: custom_json_validation
+        uses: Swapnil-Devops/recipe-reader-js@main
+        with:
+          json-file: ./recipe/cmake/recipe.json
+          schema-file: ./.schema/recie.json
+      
 
-      - name: Get Inputs
-        id:   inputs
-        run: |
-               json_content=$(jq -c . < ./recipe/cmake/recipe.json)
-               package_kind=$(echo "$json_content" | jq .package.kind)
-               package_name=$(echo "$json_content" | jq .package.name)
-               package_registry=$(echo "$json_content" | jq .package.registry)
-               package_platforms=$(echo "$json_content" | jq .package.platforms[0])
-               substrate_tag=$(echo "$json_content" | jq .substrate.tag)
-               substrate_name=$(echo "$json_content" | jq .substrate.name)
-               substrate_registry=$(echo "$json_content" | jq .substrate.registry)
-               substrate_auth=$(echo "$json_content" | jq .substrate.needs_auth)
-               source_kind=$(echo "$json_content" | jq .source.kind)
-               source_name=$(echo "$json_content" | jq .ssource.name)
-               source_registry=$(echo "$json_content" | jq .source.registry)
-               source_version=$(echo "$json_content" | jq .source.version.value)
+#       - name: Get Inputs
+#         id:   inputs
+#         run: |
+#                json_content=$(jq -c . < ./recipe/cmake/recipe.json)
+#                package_kind=$(echo "$json_content" | jq .package.kind)
+#                package_name=$(echo "$json_content" | jq .package.name)
+#                package_registry=$(echo "$json_content" | jq .package.registry)
+#                package_platforms=$(echo "$json_content" | jq .package.platforms[0])
+#                substrate_tag=$(echo "$json_content" | jq .substrate.tag)
+#                substrate_name=$(echo "$json_content" | jq .substrate.name)
+#                substrate_registry=$(echo "$json_content" | jq .substrate.registry)
+#                substrate_auth=$(echo "$json_content" | jq .substrate.needs_auth)
+#                source_kind=$(echo "$json_content" | jq .source.kind)
+#                source_name=$(echo "$json_content" | jq .ssource.name)
+#                source_registry=$(echo "$json_content" | jq .source.registry)
+#                source_version=$(echo "$json_content" | jq .source.version.value)
 
 
-               echo "package_kind=$package_kind" >> $GITHUB_OUTPUT
-               echo "package_name=$package_name" >> $GITHUB_OUTPUT
-               echo "package_registry=$package_registry" >> $GITHUB_OUTPUT
-               echo "package_platforms=$package_platforms" >> $GITHUB_OUTPUT
-               echo "substrate_tag=$substrate_tag" >> $GITHUB_OUTPUT
-               echo "substrate_name=$substrate_name" >> $GITHUB_OUTPUT
-               echo "substrate_registry=$substrate_registry" >> $GITHUB_OUTPUT
-               echo "substrate_auth=$substrate_auth" >> $GITHUB_OUTPUT
-               echo "source_kind=$source_kind" >> $GITHUB_OUTPUT
-               echo "source_name=$source_name" >> $GITHUB_OUTPUT
-               echo "source_registry=$source_registry" >> $GITHUB_OUTPUT
-               echo "source_version=$source_version" >> $GITHUB_OUTPUT
+#                echo "package_kind=$package_kind" >> $GITHUB_OUTPUT
+#                echo "package_name=$package_name" >> $GITHUB_OUTPUT
+#                echo "package_registry=$package_registry" >> $GITHUB_OUTPUT
+#                echo "package_platforms=$package_platforms" >> $GITHUB_OUTPUT
+#                echo "substrate_tag=$substrate_tag" >> $GITHUB_OUTPUT
+#                echo "substrate_name=$substrate_name" >> $GITHUB_OUTPUT
+#                echo "substrate_registry=$substrate_registry" >> $GITHUB_OUTPUT
+#                echo "substrate_auth=$substrate_auth" >> $GITHUB_OUTPUT
+#                echo "source_kind=$source_kind" >> $GITHUB_OUTPUT
+#                echo "source_name=$source_name" >> $GITHUB_OUTPUT
+#                echo "source_registry=$source_registry" >> $GITHUB_OUTPUT
+#                echo "source_version=$source_version" >> $GITHUB_OUTPUT
                
                
-      - name: Test Inputs
-        id:   test
-        run: |
-                  echo "${{ steps.inputs.outputs.package_kind }}"
-                  echo "${{ steps.inputs.outputs.package_name }}"
-                  echo "${{ steps.inputs.outputs.package_registry }}"
-                  echo "${{ steps.inputs.outputs.package_platforms }}"
-                  echo "${{ steps.inputs.outputs.substrate_tag }}"
-                  echo "${{ steps.inputs.outputs.substrate_name }}"
-                  echo "${{ steps.inputs.outputs.substrate_registry }}"
-                  echo "${{ steps.inputs.outputs.substrate_auth }}"
-                  echo "${{ steps.inputs.outputs.source_kind }}"
-                  echo "${{ steps.inputs.outputs.source_name }}"
-                  echo "${{ steps.inputs.outputs.source_registry }}"
-                  echo "${{ steps.inputs.outputs.source_version }}"
+#       - name: Test Inputs
+#         id:   test
+#         run: |
+#                   echo "${{ steps.inputs.outputs.package_kind }}"
+#                   echo "${{ steps.inputs.outputs.package_name }}"
+#                   echo "${{ steps.inputs.outputs.package_registry }}"
+#                   echo "${{ steps.inputs.outputs.package_platforms }}"
+#                   echo "${{ steps.inputs.outputs.substrate_tag }}"
+#                   echo "${{ steps.inputs.outputs.substrate_name }}"
+#                   echo "${{ steps.inputs.outputs.substrate_registry }}"
+#                   echo "${{ steps.inputs.outputs.substrate_auth }}"
+#                   echo "${{ steps.inputs.outputs.source_kind }}"
+#                   echo "${{ steps.inputs.outputs.source_name }}"
+#                   echo "${{ steps.inputs.outputs.source_registry }}"
+#                   echo "${{ steps.inputs.outputs.source_version }}"
