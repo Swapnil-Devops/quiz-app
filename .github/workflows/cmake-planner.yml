@@ -38,7 +38,7 @@ jobs:
           schema-file: ./.schema/recipe.json
         
       - name: Capture JSON Output
-        run: echo "json=${{ steps.custom_json_validation.outputs.json }}" >> ${{ github.workspace }}/$GITHUB_OUTPUT
+        run: echo "json=${{ steps.custom_json_validation.outputs.json }}" >> $GITHUB_OUTPUT
 
 #       - name: Get Inputs
 #         id:   inputs
