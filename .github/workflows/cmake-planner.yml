@@ -36,10 +36,10 @@ jobs:
         with:
           json-file: ./recipe/cmake/recipe.json
           schema-file: ./.schema/recipe.json
-        run: echo $json
+        run: echo "json=$json" >> $GITHUB_OUTPUT
         
-#       - name: Print JSON Content
-#         run: echo "JSON Content: ${{ steps.custom_json_validation.outputs.json }}"
+      - name: Print JSON Content
+        run: echo "${{ steps.custom_json_validation.outputs.json }}"
       
 
 #       - name: Get Inputs
