@@ -43,8 +43,8 @@ jobs:
             json_content=${{ steps.custom_json_validation.outputs.json }}
             echo "$json_content"  
         
-#       - name: check output
-#         run: echo "${{ env.json_content}}"
+      - name: check output
+        run: echo "${{ steps.custom_json_validation.outputs.json }}"
 
 #       - name: Get Inputs
 #         id:   inputs
