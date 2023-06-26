@@ -41,7 +41,8 @@ jobs:
         id: set_output
         run: |
             json_content=$( echo "${{ steps.custom_json_validation.outputs.json }}" )
-            echo $(echo "$json_content" | jq '.package.kind')
+            echo "$json_content" | jq -r '.package.kind'
+
         
 #       - name: check output
 #         run: echo "${{ steps.set_output.outputs.package_kind }}"
