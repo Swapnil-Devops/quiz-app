@@ -40,11 +40,11 @@ jobs:
       - name: Capture-JSON-Output
         id: set_output
         run: |
-            json_content=${{ steps.custom_json_validation.outputs.json }}
+            json_content=$( echo "${{ steps.custom_json_validation.outputs.json }}" )
             echo "$json_content"  
         
-      - name: check output
-        run: echo "${{ steps.custom_json_validation.outputs.json }}"
+#       - name: check output
+#         run: echo "${{ steps.custom_json_validation.outputs.json }}"
 
 #       - name: Get Inputs
 #         id:   inputs
