@@ -40,7 +40,6 @@ jobs:
       - name: Capture-JSON-Output
         id: set_output
         run: |
-            json_content=$( echo "${{ steps.custom_json_validation.outputs.json }}" )
             json_data=$(echo '${{ steps.custom_json_validation.outputs.json }}' | jq -c .)
             echo "$json_data" | jq .package.kind
 
