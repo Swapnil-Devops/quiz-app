@@ -37,7 +37,7 @@ jobs:
           json-file: ./recipe/cmake/recipe.json
           schema-file: ./.schema/recipe.json
         
-      - name: Capture JSON Output
+      - name: Capture-JSON-Output
         id: set_output
         run: |
             json_content=${{ steps.custom_json_validation.outputs.json }}
