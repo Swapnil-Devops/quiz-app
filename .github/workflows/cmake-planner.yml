@@ -41,8 +41,8 @@ jobs:
         id: set_output
         run: |
             json_content=$( echo "${{ steps.custom_json_validation.outputs.json }}" )
-            json_data=$(echo "$json_content" | jq -c .)
-            echo "$json_data" 
+            #json_data=$(echo "$json_content" | jq -c .)
+            #echo "$json_data" 
 
         
 #       - name: check output
