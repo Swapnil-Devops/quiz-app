@@ -30,27 +30,17 @@ jobs:
       - name: Checkout Codebase
         uses: actions/checkout@v3
         
-      - name: Run Custom JSON reader Action
-        id: custom_json_validation
+      - name: Custom JSON reader Action
+        id: inputs
         uses: Swapnil-Devops/recipe-reader-js@main
         with:
           json-file: ./recipe/cmake/recipe.json
           schema-file: ./.schema/recipe.json
         
-#       - name: Capture-JSON-Output
-#         id: set_output
-#         run: |
-#             json_data=$(echo '${{ steps.custom_json_validation.outputs.json }}' | jq -c .)
-#             echo "$json_data" | jq .package.kind
-
-        
-#       - name: check output
-#         run: echo "${{ steps.set_output.outputs.package_kind }}"
-
-      - name: Get Inputs
-        id:   inputs
+      - name: outputs
+        id: set_output
         run: |
-               json_content=$(echo '${{ steps.custom_json_validation.outputs.json }}' | jq -c .)
+               json_content=$(echo '${{ steps.inputs.outputs.json }}' | jq -c .)
                package_kind=$(echo "$json_content" | jq .package.kind)
                package_name=$(echo "$json_content" | jq .package.name)
                package_registry=$(echo "$json_content" | jq .package.registry)
@@ -79,18 +69,18 @@ jobs:
                echo "source_version=$source_version" >> $GITHUB_OUTPUT
                
                
-      - name: Test Inputs
+      - name: Test outputs
         id:   test
         run: |
-                  echo "${{ steps.inputs.outputs.package_kind }}"
-                  echo "${{ steps.inputs.outputs.package_name }}"
-                  echo "${{ steps.inputs.outputs.package_registry }}"
-                  echo "${{ steps.inputs.outputs.package_platforms }}"
-                  echo "${{ steps.inputs.outputs.substrate_tag }}"
-                  echo "${{ steps.inputs.outputs.substrate_name }}"
-                  echo "${{ steps.inputs.outputs.substrate_registry }}"
-                  echo "${{ steps.inputs.outputs.substrate_auth }}"
-                  echo "${{ steps.inputs.outputs.source_kind }}"
-                  echo "${{ steps.inputs.outputs.source_name }}"
-                  echo "${{ steps.inputs.outputs.source_registry }}"
-                  echo "${{ steps.inputs.outputs.source_version }}"
+                  echo "${{ steps.set_output.outputs.package_kind }}"
+                  echo "${{ steps.set_output.outputs.package_name }}"
+                  echo "${{ steps.set_output.outputs.package_registry }}"
+                  echo "${{ steps.set_output.outputs.package_platforms }}"
+                  echo "${{ steps.set_output.outputs.substrate_tag }}"
+                  echo "${{ steps.set_output.outputs.substrate_name }}"
+                  echo "${{ steps.set_output.outputs.substrate_registry }}"
+                  echo "${{ steps.set_output.outputs.substrate_auth }}"
+                  echo "${{ steps.set_output.outputs.source_kind }}"
+                  echo "${{ steps.set_output.outputs.source_name }}"
+                  echo "${{ steps.set_output.outputs.source_registry }}"
+                  echo "${{ steps.set_output.outputs.source_version }}"
