@@ -39,7 +39,7 @@ jobs:
         
       - name: Capture JSON Output
         id: set_output
-        run: echo "${{ steps.custom_json_validation.outputs.error }}"  
+        run: echo "${{ steps.custom_json_validation.outputs.json }}"  
         
 #       - name: check output
 #         run: echo "${{ env.json_content}}"
