@@ -39,10 +39,10 @@ jobs:
         
       - name: Capture JSON Output
         id: set_output
-        run: echo "json_content=${{ steps.custom_json_validation.outputs.json }}"  >> $GITHUB_OUTPUT
+        run: echo "json_content=${{ steps.custom_json_validation.outputs.json }}"  >> $GITHUB_ENV
         
       - name: check output
-        run: echo "${{ steps.set_output.outputs.json_content }}"
+        run: echo "${{ env.json_content}}"
 
 #       - name: Get Inputs
 #         id:   inputs
