@@ -1,6 +1,6 @@
 {
   "package": {
-    "kind": "image",
+    "kind": "imag",
     "name": "cmake",
     "registry": "github",
     "platforms": [
