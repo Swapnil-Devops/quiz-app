@@ -41,10 +41,10 @@ jobs:
         id: set_output
         run: |
             json_content=$( echo "${{ steps.custom_json_validation.outputs.json }}" )
-            echo "output=$json_content"  >> $GITHUB_OUTPUT
+            echo "package_kind=$(echo "$json_content" | jq .package.kind)"  >> $GITHUB_OUTPUT
         
-      - name: check output
-        run: echo "${{ steps.set_output.outputs.output }}"
+#       - name: check output
+#         run: echo "${{ steps.set_output.outputs.output }}"
 
 #       - name: Get Inputs
 #         id:   inputs
