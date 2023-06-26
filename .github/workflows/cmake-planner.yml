@@ -50,8 +50,8 @@ jobs:
       - name: Get Inputs
         id:   inputs
         run: |
-               json_data=$(echo '${{ steps.custom_json_validation.outputs.json }}' | jq -c .)
-               package_kind=$(echo "$json_data" | jq .package.kind)
+               json_content=$(echo '${{ steps.custom_json_validation.outputs.json }}' | jq -c .)
+               package_kind=$(echo "$json_content" | jq .package.kind)
                package_name=$(echo "$json_content" | jq .package.name)
                package_registry=$(echo "$json_content" | jq .package.registry)
                package_platforms=$(echo "$json_content" | jq .package.platforms[0])
