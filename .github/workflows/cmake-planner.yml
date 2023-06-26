@@ -30,7 +30,7 @@ jobs:
       - name: Checkout Codebase
         uses: actions/checkout@v3
         
-      - name: Run Custom JSON Validation Action
+      - name: Run Custom JSON reader Action
         id: custom_json_validation
         uses: Swapnil-Devops/recipe-reader-js@main
         with:
@@ -39,7 +39,9 @@ jobs:
         
       - name: Capture JSON Output
         id: set_output
-        run: echo "${{ steps.custom_json_validation.outputs.json }}"  
+        run: |
+            json_content=${{ steps.custom_json_validation.outputs.json }}
+            echo "${{ json_content }}"  
         
 #       - name: check output
 #         run: echo "${{ env.json_content}}"
