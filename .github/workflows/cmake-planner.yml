@@ -94,7 +94,7 @@ jobs:
         id: get-metadata
         uses: Swapnil-Devops/Package-Introspection-Action@main
         with:
-          package-name: 'gcr-demo'
+          package-name: 'ghcr.io/swapnil-devops/gcr-demo:latest'
           token: ${{ secrets.GH_TOKEN }}            
   
       
