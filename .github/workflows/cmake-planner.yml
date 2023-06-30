@@ -92,7 +92,7 @@ jobs:
 
       - name: Get Package Metadata
         id: get-metadata
-        uses: ./.github/actions/get-package-metadata@main
+        uses: Swapnil-Devops/quiz-app/.github/actions/get-package-metadata@master
         with:
           package-name: 'gcr-demo'
           token: ${{ secrets.GH_TOKEN }}            
