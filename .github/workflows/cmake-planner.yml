@@ -90,6 +90,10 @@ jobs:
         with:
           node-version: '16'
 
+      - name: get core
+        id: core
+        run: cd ./.github/actions/get-package-metadata  && npm install @actions/core   
+
       - name: Get Package Metadata
         id: get-metadata
         uses: Swapnil-Devops/quiz-app/.github/actions/get-package-metadata@master
