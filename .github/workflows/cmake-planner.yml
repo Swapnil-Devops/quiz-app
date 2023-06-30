@@ -85,14 +85,6 @@ jobs:
                   echo "${{ steps.set_output.outputs.source_registry }}"
                   echo "${{ steps.set_output.outputs.source_version }}"
 
-
-  retrieve-package-metadata:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -103,7 +95,9 @@ jobs:
         uses: ./.github/actions/get-package-metadata@main
         with:
           package-name: 'gcr-demo'
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}            
+  
+      
 
       # - name: Print Package Metadata
       #   run: echo "Package metadata: ${{ steps.get-metadata.outputs.package-metadata }}"                 
