@@ -8,6 +8,7 @@
   },
   "homepage": "https://safdarjamal.github.io/quiz-app/",
   "dependencies": {
+    "@actions/core": "^1.10.0",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
