@@ -1,0 +1,12 @@
+name: 'Get Package Metadata'
+description: 'Retrieves package metadata from the GitHub Package Registry'
+inputs:
+  package-name:
+    description: 'Name of the package'
+    required: true
+outputs:
+  package-metadata:
+    description: 'Retrieved package metadata'
+runs:
+  using: 'node16'
+  main: 'index.js'
