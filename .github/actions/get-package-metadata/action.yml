@@ -4,6 +4,9 @@ inputs:
   package-name:
     description: 'Name of the package'
     required: true
+  token:
+    description: 'GitHub token for authentication'
+    required: true  
 outputs:
   package-metadata:
     description: 'Retrieved package metadata'
