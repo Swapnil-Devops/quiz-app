@@ -84,20 +84,5 @@ jobs:
                   echo "${{ steps.set_output.outputs.source_name }}"
                   echo "${{ steps.set_output.outputs.source_registry }}"
                   echo "${{ steps.set_output.outputs.source_version }}"
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
-      - name: Get Package Metadata
-        id: get-metadata
-        uses: Swapnil-Devops/Package-Introspection-Action@main
-        with:
-          package-name: 'ghcr.io/swapnil-devops/gcr-demo:latest'
-          token: ${{ secrets.GH_TOKEN }}            
-  
-      
-
-      # - name: Print Package Metadata
-      #   run: echo "Package metadata: ${{ steps.get-metadata.outputs.package-metadata }}"                 
+           
+               
