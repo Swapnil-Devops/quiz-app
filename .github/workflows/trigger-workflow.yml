@@ -18,5 +18,3 @@ jobs:
       - name: workflow steps
         run: |
           echo "hi swapnil"
-          echo "Event Payload:"
-          echo "${{ toJson(github.event) }}"
