@@ -7,14 +7,15 @@ on:
 
 jobs:
   triage:
-    
+    if: >-
+      github.event.discussion.category.name == 'General'
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: workflow steps 
+      - name: Run your workflow steps here
         run: |
           echo "hi swapnil"
           echo "Event Payload:"
