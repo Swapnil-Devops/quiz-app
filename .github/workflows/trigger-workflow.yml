@@ -1,0 +1,20 @@
+name: Trigger Workflow on Discussion
+
+on:
+  discussion:
+    types:
+      - created
+
+jobs:
+  triage:
+    if: >-
+      github.event.discussion.category == 'general'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run your workflow steps here
+        run: |
+          echo "hi swapnil"
