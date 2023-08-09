@@ -17,4 +17,4 @@ jobs:
 
       - name: workflow steps
         run: |
-         echo "Event Payload:"
+         echo "${{ toJson(github.event) }}"
