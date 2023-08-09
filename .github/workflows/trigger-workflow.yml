@@ -8,7 +8,7 @@ on:
 jobs:
   triage:
     if: >-
-      github.event.discussion.category == 'general'
+      github.event.discussion.category == 'General'
     runs-on: ubuntu-latest
 
     steps:
