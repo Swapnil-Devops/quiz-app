@@ -17,4 +17,6 @@ jobs:
 
       - name: workflow steps
         run: |
-         echo '${{ toJson(github.event) }}' 
+         echo '${{ toJson(github.event) }}' | jq '.discussion.body'
+         echo '${{ toJson(github.event) }}' | jq '.title'
+
