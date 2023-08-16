@@ -22,22 +22,22 @@ jobs:
 
       - name: chatgpt
         id: chatgpt
-        uses: Swapnil-Devops/openai-gpt3-action@main
+        uses: Swapnil-Devops/chatdocument@main
         with:
           api_key: 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
           prompt: what is GitHub?
 
-      # - name: Create a new GitHub Discussion
-      #   id: create-discussion
-      #   uses: abirismyname/create-discussion@v1.1.0
-      #   env:
-      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     title: ${{ steps.prompt.outputs.title }}
-      #     body: ${{ steps.prompt.outputs.body }}
-      #     repository-id: R_kgDOJu3TlQ
-      #     category-id: DIC_kwDOJu3Tlc4CYRdF
-      # - name: Print discussion url and id
-      #   run: |
-      #     echo discussion-id: ${{steps.create-discussion.outputs.discussion-id}} 
-      #     echo discussion-url: ${{steps.create-discussion.outputs.discussion-url}}
+      - name: Create a new GitHub Discussion
+        id: create-discussion
+        uses: abirismyname/create-discussion@v1.1.0
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          title: ${{ steps.prompt.outputs.title }}
+          body: ${{ steps.prompt.outputs.body }}
+          repository-id: R_kgDOJu3TlQ
+          category-id: DIC_kwDOJu3Tlc4CYRdF
+      - name: Print discussion url and id
+        run: |
+          echo discussion-id: ${{steps.create-discussion.outputs.discussion-id}} 
+          echo discussion-url: ${{steps.create-discussion.outputs.discussion-url}}
