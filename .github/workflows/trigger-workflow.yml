@@ -24,7 +24,7 @@ jobs:
         id: chatgpt
         uses: Swapnil-Devops/openai-gpt3-action@main
         with:
-          api-key: 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
+          api_key: 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
           prompt: what is GitHub?
 
       # - name: Create a new GitHub Discussion
