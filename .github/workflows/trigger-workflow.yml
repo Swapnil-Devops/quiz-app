@@ -25,7 +25,7 @@ jobs:
         uses: Swapnil-Devops/chatdocument@main
         with:
           api_key: ${{ secrets.API_KEY }}
-          prompt: what is GitHub?
+          prompt: ${{ steps.prompt.outputs.body }}
 
       - name: Create a new GitHub Discussion
         id: create-discussion
@@ -34,7 +34,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           title: ${{ steps.prompt.outputs.title }}
-          body: ${{ steps.prompt.outputs.body }}
+          body: ${{ steps.chatgpt.outputs.body }}
           repository-id: R_kgDOJu3TlQ
           category-id: DIC_kwDOJu3Tlc4CYRdF
       - name: Print discussion url and id
